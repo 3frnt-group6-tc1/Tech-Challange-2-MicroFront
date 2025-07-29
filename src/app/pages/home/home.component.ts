@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
 import {
   ReactiveFormsModule,
   FormBuilder,
@@ -18,6 +17,8 @@ import { IconDollarComponent } from '../../shared/assets/icons/icon-dollar.compo
 import { IconZapComponent } from '../../shared/assets/icons/icon-zap.component';
 import { IconSmartphoneComponent } from '../../shared/assets/icons/icon-smartphone.component';
 import { IconShieldComponent } from '../../shared/assets/icons/icon-shield.component';
+
+import { NavigationUtil } from '../../shared/utils/navigation.util';
 
 interface ContatoForm {
   nome: string;
@@ -104,35 +105,11 @@ export class HomeComponent implements OnInit {
     class: 'w-8 h-8 text-white dark:text-cyan-blue-300',
   };
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder) {
     this.initForm();
   }
 
-  ngOnInit(): void {
-    // Componente inicializado
-    window.addEventListener('message', this.handleHostMessage.bind(this));
-  }
-
-  private handleHostMessage(event: MessageEvent) {
-    console.log('Mensagem recebida do host:', event.data);
-
-    if (!event.data || typeof event.data !== 'object') return;
-    if (event.data.type === 'scrollToAnchor' && event.data.anchor) {
-      this.scrollToSection(event.data.anchor);
-    }
-
-    if (event.data.type === 'theme' && event.data.theme) {
-      this.toggleTheme(event.data.theme);
-    }
-  }
-
-  toggleTheme(theme: 'light' | 'dark'): void {
-    const root = document.documentElement;
-
-    console.log(`Trocando tema para: ${theme}`);
-    root.className = '';
-    root.classList.add(theme);
-  }
+  ngOnInit(): void {}
 
   private initForm(): void {
     this.contatoForm = this.fb.group({
@@ -232,32 +209,11 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  emitNavigationEvent(link: string): void {
-    // Emite o evento para o host/container via postMessage (caso esteja em iframe)
-    if (window.parent && window.parent !== window) {
-      window.parent.postMessage({ type: 'microfront:navigate', link }, '*');
-    } else {
-      // Fallback para contexto sem iframe
-      const event = new CustomEvent('microfront:navigate', {
-        detail: { link },
-        bubbles: true,
-        composed: true,
-      });
-      window.dispatchEvent(event);
-    }
-  }
-
   goToRegister(): void {
-    this.emitNavigationEvent('/register');
+    NavigationUtil.emitNavigationEvent('/register');
   }
 
-  scrollToSection(sectionId: string): void {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-    }
+  public scrollToSection(sectionId: string): void {
+    NavigationUtil.scrollToSection(sectionId);
   }
 }
