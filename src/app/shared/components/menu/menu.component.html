@@ -1,0 +1,52 @@
+<!-- Menu Mobile/tablet deslogado -->
+@if((mobile || tablet) && menuOpen) {
+<div
+  #menuRef
+  class="fixed inset-0 z-50 bg-black/60 flex justify-center items-start pt-24"
+>
+  <div
+    class="bg-white dark:bg-blue-violet-500 rounded-lg w-full p-9 flex flex-col gap-4 text-center shadow-xl"
+  >
+    <a
+      class="text-cyan-blue-500 dark:text-gray-200 text-[18px] font-semibold"
+      href="/#sobre"
+    >
+      Sobre
+    </a>
+    <a
+      class="text-cyan-blue-500 dark:text-gray-200 text-[18px] font-semibold"
+      href="/#vantagens"
+    >
+      Vantagens
+    </a>
+    <a
+      class="text-cyan-blue-500 dark:text-gray-200 text-[18px] font-semibold"
+      href="/#servicos"
+    >
+      Serviços
+    </a>
+    <a
+      class="text-cyan-blue-500 dark:text-gray-200 text-[18px] font-semibold"
+      href="/#contato"
+    >
+      Contato
+    </a>
+    <div class="px-6 flex flex-col justify-center items-center gap-4">
+      <app-button
+        theme="secondary"
+        label="Abrir minha conta"
+        size="G"
+        (click)="goToRegister()"
+      ></app-button>
+      <app-button
+        [theme]="themeService.isDarkMode() ? 'ghost-white' : 'primary'"
+        label="Já tenho conta"
+        size="G"
+        (click)="goToPanel()"
+      >
+        <app-icon-exit icon-right class="text-white hover:dark:text-gray-200" />
+      </app-button>
+    </div>
+  </div>
+</div>
+}
