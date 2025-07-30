@@ -4,6 +4,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { map, tap, switchMap } from 'rxjs/operators';
 import { apiConfig } from '../../../app.config';
 import { SafeStorageService } from '../Storage';
+import { MfEventUtil } from '../../utils/mf-event.util';
 
 export interface LoginRequest {
   email: string;
@@ -188,6 +189,8 @@ export class AuthService {
     }
 
     this.isAuthenticatedSubject.next(true);
+
+    MfEventUtil.emitLoginEvent(authResult);
   }
 
   /**

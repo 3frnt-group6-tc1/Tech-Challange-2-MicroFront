@@ -13,6 +13,7 @@ import { IconLogoComponent } from '../../shared/assets/icons/icon-logo.component
 import { IconErrorComponent } from '../../shared/assets/icons/icon-error.component';
 import { IconSuccessComponent } from '../../shared/assets/icons/icon-success.component';
 import { IconLoadingComponent } from '../../shared/assets/icons/icon-loading.component';
+import { NavigationUtil } from '../../shared/utils/navigation.util';
 
 @Component({
   selector: 'app-register',
@@ -56,7 +57,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     // If already authenticated, redirect to panel
     if (this.authService.isAuthenticated()) {
-      this.router.navigate(['/panel']);
+      NavigationUtil.emitNavigationEvent('/panel');
     }
   }
 

@@ -37,8 +37,6 @@ export class MenuComponent implements AfterViewInit, OnInit, OnDestroy {
   @Output() menuRefReady = new EventEmitter<ElementRef>();
   @Output() closeMenu = new EventEmitter<void>();
 
-  private routerSub: Subscription | undefined;
-
   constructor(
     private readonly router: Router,
     public readonly themeService: ThemeService
@@ -46,9 +44,7 @@ export class MenuComponent implements AfterViewInit, OnInit, OnDestroy {
 
   ngOnInit() {}
 
-  ngOnDestroy() {
-    this.routerSub?.unsubscribe();
-  }
+  ngOnDestroy() {}
 
   ngAfterViewInit() {
     if (this.menuRefElement) {
@@ -67,11 +63,11 @@ export class MenuComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   goToRegister(): void {
-    NavigationUtil.emitNavigationEvent('/register');
+    this.router.navigate(['/register']);
   }
 
   goToPanel(): void {
-    NavigationUtil.emitNavigationEvent('/panel');
+    this.router.navigate(['/login']);
   }
 
   public scrollToSection(sectionId: string): void {

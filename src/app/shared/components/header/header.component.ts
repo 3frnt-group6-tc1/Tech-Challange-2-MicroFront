@@ -6,11 +6,11 @@ import {
   ViewChild,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, NavigationEnd } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 
 import { ThemeService } from '../../services/Theme/theme.service';
+import { AuthService } from '../../services/Auth/auth.service';
 
 import { IconExitComponent } from '../../assets/icons/icon-exit.component';
 import { IconHamburgerComponent } from '../../assets/icons/icon-hamburger.component';
@@ -45,7 +45,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isLoading: boolean = true;
   private destroy$ = new Subject<void>();
 
-  constructor(public themeService: ThemeService) {}
+  constructor(
+    public themeService: ThemeService,
+    private readonly router: Router,
+    private readonly authService: AuthService
+  ) {}
 
   @ViewChild('menuRef') menuRef?: ElementRef;
   private resizeListener = () => this.checkScreen();
@@ -145,11 +149,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   goToRegister(): void {
-    NavigationUtil.emitNavigationEvent('/register');
+    this.router.navigate(['/register']);
   }
 
   goToPanel(): void {
-    NavigationUtil.emitNavigationEvent('/panel');
+    this.router.navigate(['/login']);
   }
 
   private handleHostMessage(event: MessageEvent) {

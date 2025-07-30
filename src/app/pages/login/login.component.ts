@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Router, RouterModule } from '@angular/router';
+import { Router, RouterModule, ActivatedRoute } from '@angular/router';
 import {
   AuthService,
   LoginRequest,
@@ -12,6 +12,7 @@ import { IconEyeComponent } from '../../shared/assets/icons/icon-eye.component';
 import { IconLogoComponent } from '../../shared/assets/icons/icon-logo.component';
 import { IconErrorComponent } from '../../shared/assets/icons/icon-error.component';
 import { IconLoadingComponent } from '../../shared/assets/icons/icon-loading.component';
+import { NavigationUtil } from '../../shared/utils/navigation.util';
 
 @Component({
   selector: 'app-login',
@@ -40,12 +41,16 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
   showPassword = false;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     // If already authenticated, redirect to panel
     if (this.authService.isAuthenticated()) {
-      this.router.navigate(['/panel']);
+      NavigationUtil.emitNavigationEvent('/panel');
     }
   }
 
@@ -68,7 +73,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.credentials).subscribe({
       next: (response) => {
         this.isLoading = false;
-        this.router.navigate(['/panel']);
+        NavigationUtil.emitNavigationEvent('/panel');
       },
       error: (error) => {
         this.isLoading = false;
