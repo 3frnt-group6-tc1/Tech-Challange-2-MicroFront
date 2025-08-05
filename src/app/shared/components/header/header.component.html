@@ -8,7 +8,7 @@
     @if(!mobile && !tablet) {
     <ul class="flex items-center gap-10">
       <li>
-        <a href="/">
+        <a href="/" aria-label="Ir para página inicial do ByteBank">
           <app-icon-logo class="text-white m-auto"></app-icon-logo>
         </a>
       </li>
@@ -17,6 +17,7 @@
         <a
           class="text-white hover:text-orange-500 dark:hover:text-gray-250 font-lato text-[18px] font-semibold transition-all"
           href="/#sobre"
+          aria-label="Ir para página sobre do ByteBank"
         >
           Sobre
         </a>
@@ -25,6 +26,7 @@
         <a
           class="text-white hover:text-orange-500 dark:hover:text-gray-250 font-lato text-[18px] font-semibold transition-all"
           href="/#vantagens"
+          aria-label="Ir para página vantagens do ByteBank"
         >
           Vantagens
         </a>
@@ -33,6 +35,7 @@
         <a
           class="text-white hover:text-orange-500 dark:hover:text-gray-250 font-lato text-[18px] font-semibold transition-all"
           href="/#servicos"
+          aria-label="Ir para página serviços do ByteBank"
         >
           Serviços
         </a>
@@ -41,6 +44,7 @@
         <a
           class="text-white hover:text-orange-500 dark:hover:text-gray-250 font-lato text-[18px] font-semibold transition-all"
           href="/#contato"
+          aria-label="Ir para página contato do ByteBank"
         >
           Contato
         </a>
@@ -52,6 +56,7 @@
         label="Abrir minha conta"
         size="P"
         (click)="goToRegister()"
+        aria-label="Ir para página de cadastro do ByteBank"
       ></app-button>
 
       <app-button
@@ -59,6 +64,7 @@
         label="Já tenho conta"
         size="P"
         (click)="goToPanel()"
+        aria-label="Ir para página de login do ByteBank"
       >
         <app-icon-exit
           icon-right
@@ -69,6 +75,7 @@
       <app-button
         (click)="toggleDarkMode()"
         size="P"
+        aria-label="Alternar modo escuro"
         label=""
         [theme]="'primary'"
       >
@@ -80,14 +87,14 @@
     </div>
     } @else {
     <div class="flex justify-between items-center w-full">
-      <a href="/">
+      <a href="/" aria-label="Ir para página inicial do ByteBank">
         <app-icon-logo class="text-white m-auto"></app-icon-logo>
       </a>
       <div class="flex gap-6">
-        <app-button (click)="toggleDarkMode()" size="P" label="">
+        <app-button (click)="toggleDarkMode()" size="P" label="" aria-label="Alternar modo escuro">
           <app-icon-darkmode icon-left class="text-white"></app-icon-darkmode>
         </app-button>
-        <app-button size="P" label="" (click)="toggleMenu()">
+        <app-button size="P" label="" (click)="toggleMenu()" aria-label="Abrir menu de navegação">
           <app-icon-hamburger icon-left class="text-white"></app-icon-hamburger>
         </app-button>
       </div>

@@ -16,7 +16,7 @@
           sua conta com a gente!
         </app-text>
       </div>
-      <img src="../../../assets/imgs/grafic.svg" alt="" />
+      <img src="../../../assets/imgs/grafic.svg" alt="Gráfico ilustrativo mostrando crescimento financeiro e controle de gastos" />
     </div>
 
     <!-- Segunda Dobra -->
@@ -133,7 +133,7 @@
               <app-text
                 variant="text-regular"
                 as="p"
-                color="text-black-600 dark:text-gray-250"
+                color="text-black-700 dark:text-gray-250"
                 class="text-sm"
               >
                 {{ servico.description }}
@@ -142,7 +142,7 @@
 
             <div
               *ngIf="servico.isComingSoon"
-              class="inline-flex items-center px-4 py-2 bg-orange-500 dark:bg-blue-violet-100 text-white text-sm font-medium rounded-full"
+              class="inline-flex items-center px-4 py-2 bg-orange-600 dark:bg-blue-violet-500 text-black text-sm font-semibold rounded-full"
             >
               Em breve
             </div>
@@ -174,12 +174,14 @@
         <button
           class="px-8 py-3 bg-white text-cyan-blue-500 font-semibold rounded-lg hover:bg-gray-100 transition-colors shadow-lg w-60 h-15"
           (click)="goToRegister()"
+          aria-label="Abrir conta grátis no ByteBank"
         >
           Abrir Conta Grátis
         </button>
         <button
           class="px-8 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-cyan-blue-500 transition-colors w-60 h-15"
           (click)="scrollToSection('sobre')"
+          aria-label="Saiba mais sobre os serviços do ByteBank"
         >
           Saiba Mais
         </button>
@@ -202,6 +204,7 @@
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
+            role="img"
           >
             <path
               stroke-linecap="round"
@@ -215,7 +218,7 @@
         <app-text
           variant="title-bold"
           as="h2"
-          color="text-white dark:text-white"
+          color="text-cyan-blue-900 dark:text-white"
           class="mb-4"
         >
           Entre em Contato
@@ -223,7 +226,7 @@
         <app-text
           variant="text-regular"
           as="p"
-          color="text-white dark:text-white"
+          color="text-cyan-blue-900 dark:text-white"
           class="text-lg max-w-2xl mx-auto"
         >
           Tem alguma dúvida ou sugestão? Nossa equipe está pronta para ajudar
@@ -252,7 +255,7 @@
                   type="text"
                   id="nome"
                   formControlName="nome"
-                  class="w-full px-4 py-3 bg-gray-100 border border-gray-200 dark:bg-indigo-700 rounded-lg focus:border-cyan-blue-500 dark:focus:border-cyan-blue-500 dark:text-white placeholder-black-600 dark:placeholder-gray-250 text-base"
+                  class="w-full px-4 py-3 bg-gray-100 border border-gray-200 dark:bg-indigo-700 rounded-lg focus:border-cyan-blue-500 dark:focus:border-cyan-blue-500 dark:text-white placeholder-black-700 dark:placeholder-gray-250 text-base"
                   placeholder="Digite seu nome completo"
                 />
                 <div
@@ -286,7 +289,7 @@
                   type="email"
                   id="email"
                   formControlName="email"
-                  class="w-full px-4 py-3 bg-gray-100 border border-gray-200 dark:bg-indigo-700 rounded-lg focus:border-cyan-blue-500 dark:focus:border-cyan-blue-500 dark:text-white placeholder-black-600 dark:placeholder-gray-250 text-base"
+                  class="w-full px-4 py-3 bg-gray-100 border border-gray-200 dark:bg-indigo-700 rounded-lg focus:border-cyan-blue-500 dark:focus:border-cyan-blue-500 dark:text-white placeholder-black-700 dark:placeholder-gray-250 text-base"
                   placeholder="seu@email.com"
                 />
                 <div
@@ -320,7 +323,7 @@
                   type="tel"
                   id="telefone"
                   formControlName="telefone"
-                  class="w-full px-4 py-3 bg-gray-100 border border-gray-200 dark:bg-indigo-700 rounded-lg focus:border-cyan-blue-500 dark:focus:border-cyan-blue-500 dark:text-white placeholder-black-600 dark:placeholder-gray-250 text-base"
+                  class="w-full px-4 py-3 bg-gray-100 border border-gray-200 dark:bg-indigo-700 rounded-lg focus:border-cyan-blue-500 dark:focus:border-cyan-blue-500 dark:text-white placeholder-black-700 dark:placeholder-gray-250 text-base"
                   placeholder="(11) 99999-9999"
                 />
               </div>
@@ -379,11 +382,11 @@
                   id="mensagem"
                   formControlName="mensagem"
                   rows="12"
-                  class="w-full px-4 py-3 bg-gray-100 border border-gray-200 dark:bg-indigo-700 rounded-lg focus:border-cyan-blue-500 dark:focus:border-cyan-blue-500 dark:text-white placeholder-black-600 dark:placeholder-gray-250 text-base resize-none"
+                  class="w-full px-4 py-3 bg-gray-100 border border-gray-200 dark:bg-indigo-700 rounded-lg focus:border-cyan-blue-500 dark:focus:border-cyan-blue-500 dark:text-white placeholder-black-700 dark:placeholder-gray-250 text-base resize-none"
                   placeholder="Digite sua mensagem aqui..."
                 ></textarea>
                 <div
-                  class="text-xs text-black-600 dark:text-white mt-1 text-right"
+                  class="text-xs text-black-700 dark:text-white mt-1 text-right"
                 >
                   {{ contatoForm.get("mensagem")?.value?.length || 0 }}/500
                 </div>
@@ -416,7 +419,7 @@
                   Outras formas de contato
                 </h3>
                 <div class="space-y-3 text-sm">
-                  <div class="flex items-center text-black-600 dark:text-white">
+                  <div class="flex items-center text-black-700 dark:text-white">
                     <svg
                       class="w-5 h-5 mr-3 text-cyan-blue-500 dark:text-white"
                       fill="none"
@@ -432,7 +435,7 @@
                     </svg>
                     (11) 4000-1234
                   </div>
-                  <div class="flex items-center text-black-600 dark:text-white">
+                  <div class="flex items-center text-black-700 dark:text-white">
                     <svg
                       class="w-5 h-5 mr-3 text-cyan-blue-500 dark:text-white"
                       fill="none"
@@ -448,7 +451,7 @@
                     </svg>
                     contato&#64;bytebank.com.br
                   </div>
-                  <div class="flex items-center text-black-600 dark:text-white">
+                  <div class="flex items-center text-black-700 dark:text-white">
                     <svg
                       class="w-5 h-5 mr-3 text-cyan-blue-500 dark:text-white"
                       fill="none"
@@ -475,6 +478,7 @@
               type="submit"
               [disabled]="contatoForm.invalid || isEnviando"
               class="px-8 py-3 bg-cyan-blue-500 hover:bg-cyan-blue-900 dark:bg-blue-violet-100 disabled:bg-gray-250 text-white font-semibold rounded-lg disabled:cursor-not-allowed shadow-x-light focus:outline-none"
+              aria-label="Enviar mensagem de contato"
             >
               <span class="flex items-center justify-center">
                 <svg

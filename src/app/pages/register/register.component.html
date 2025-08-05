@@ -12,7 +12,7 @@
         Criar conta
       </app-text>
       <app-text
-        variant="text-small"
+        variant="text-small"  
         color="text-white"
         class="mt-2 text-center"
       >
@@ -99,6 +99,7 @@
               type="button"
               class="absolute inset-y-0 right-0 pr-3 flex items-center"
               (click)="togglePasswordVisibility()"
+              aria-label="Alternar visibilidade da senha"
             >
               <app-icon-eye
                 class="h-5 w-5 text-black hover:text-gray-700"
@@ -131,6 +132,7 @@
               type="button"
               class="absolute inset-y-0 right-0 pr-3 flex items-center"
               (click)="toggleConfirmPasswordVisibility()"
+              aria-label="Alternar visibilidade da confirmação de senha"
             >
               <app-icon-eye
                 class="h-5 w-5 text-black hover:text-gray-700"
@@ -191,7 +193,7 @@
           class="font-medium text-indigo-300 hover:text-indigo-500"
         >
           Fazer login
-        </a>
+        </a> 
       </app-text>
     </div>
   </div>
