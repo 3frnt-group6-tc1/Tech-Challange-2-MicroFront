@@ -20,4 +20,9 @@ export class ButtonComponent {
   @Input() iconPosition: 'left' | 'right' = 'left';
   @Input() type: 'button' | 'submit' | 'reset' = 'button';
   @Input() class: string = '';
+  @Input() ariaLabel?: string;
+  @Input('aria-label') ariaLabelAttr?: string;
+  get resolvedAriaLabel(): string | null {
+    return this.ariaLabel || this.ariaLabelAttr || this.label || null;
+  }
 }

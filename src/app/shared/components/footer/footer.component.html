@@ -31,7 +31,7 @@
               variant="text-regular-special"
               as="p"
               color="text-white dark:text-gray-200"
-            >
+            > 
               Cartão de crédito
             </app-text>
           </li>
@@ -78,6 +78,7 @@
           variant="text-regular"
           as="p"
           color="text-white dark:text-gray-200"
+          aria-label="Copyright do ByteBank"
         >
           © Copyright {{ year }} {{ company }}
         </app-text>
@@ -87,21 +88,24 @@
         ></app-icon-logo>
 
         <div class="flex flex-row gap-6 items-center justify-center">
-          <app-button size="P" label="">
+          <app-button size="P" label="" aria-label="Contato via WhatsApp">
             <app-icon-whatsapp
               icon-left
+              aria-label="Contato via WhatsApp"
               class="text-white dark:text-gray-200"
             ></app-icon-whatsapp>
           </app-button>
-          <app-button size="P" label="">
+          <app-button size="P" label="" aria-label="Seguir no Instagram">
             <app-icon-instagram
               icon-left
+              aria-label="Seguir no Instagram"
               class="text-white dark:text-gray-200"
             ></app-icon-instagram>
           </app-button>
-          <app-button size="P" label="">
+          <app-button size="P" label="" aria-label="Canal no YouTube">
             <app-icon-youtube
               icon-left
+              aria-label="Canal no YouTube"
               class="text-white dark:text-gray-200"
             ></app-icon-youtube>
           </app-button>
